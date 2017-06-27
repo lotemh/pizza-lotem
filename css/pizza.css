@@ -1,0 +1,64 @@
+.cover-bg{
+    background-size: cover;
+    background-position: center;
+}
+
+.clickable{
+    cursor:pointer;
+}
+
+.pizza-wrapper{
+    text-align:center;
+}
+
+.pizza{
+    height:500px;
+    width:500px;
+    background-image: url('../images/pizza.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.side-menu{
+    top:0;
+    left:0;
+    width: 400px;
+    position: absolute;
+    height: 100vh;
+    background-color: green;
+}
+
+.side-menu .menu-title{
+    text-align: center;
+}
+
+.side-menu ul{
+    list-style: none;
+}
+
+.side-menu button{
+    color:white;
+    background-color:red;
+    font-family: 'Lobster', cursive;
+    font-size:40px;
+    margin: 10px;
+    width: 300px;
+    cursor:pointer;
+}
+
+.side-menu button#tomatoes{
+    background-image: url("../images/tomatoes.jpg");
+}
+
+.side-menu button#olives{
+    background-image: url("../images/olives.jpg");
+}
+
+.side-menu button#mushrooms{
+    background-image: url("../images/mushrooms.jpg");
+}
+
+.side-menu button#pineapple{
+    background-image: url("../images/pineapple.jpg");
+}
