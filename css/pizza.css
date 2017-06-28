@@ -58,3 +58,39 @@
 .side-menu button.selected{
     border:10px solid red;
 }
+
+#modal-wrapper{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color:rgba(0,0,0,0.5);
+    z-index:12345;
+}
+
+#modal-wrapper .modal-title{
+    font-family: 'Lobster', cursive;
+    font-size:40px;
+    color:red;
+}
+
+#modal-wrapper .modal{
+    background-color: white;
+    min-width: 200px;
+    min-height: 100px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 40px;
+    border-radius: 5px;
+}
+
+#modal-wrapper .close-btn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    color:black;
+}

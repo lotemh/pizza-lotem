@@ -38,10 +38,21 @@ Pizza.placeToppings = function(e){
     }
 };
 
+
+Pizza.showModal = function(title, message){
+    var modalWrapper = document.getElementById("modal-wrapper");
+    modalWrapper.style.display = "block";
+};
+
 Pizza.new = function(){
     var pizzaName = prompt("What is the name of your new pizza?");
     var pizzaTitle = document.getElementById("pizza-title");
     pizzaTitle.innerHTML = pizzaName;
+    var pizza = document.getElementById("pizza");
+    var allToppings = pizza.getElementsByTagName('img');
+    for (var i = allToppings.length - 1; i >= 0; i--) {
+        pizza.removeChild(allToppings[i]);
+    }
     Pizza.show();
 };
 
