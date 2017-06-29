@@ -48,20 +48,56 @@ Pizza.new = function(){
     var pizzaName = prompt("What is the name of your new pizza?");
     var pizzaTitle = document.getElementById("pizza-title");
     pizzaTitle.innerHTML = pizzaName;
+    Pizza.clear();
+    Pizza.show();
+};
+
+Pizza.clear = function(){
     var pizza = document.getElementById("pizza");
     var allToppings = pizza.getElementsByTagName('img');
     for (var i = allToppings.length - 1; i >= 0; i--) {
         pizza.removeChild(allToppings[i]);
     }
-    Pizza.show();
 };
 
 Pizza.save = function(){
-    alert("save");
+    var pizza = document.getElementById("pizza");
+    var pizzaLeft = pizza.getBoundingClientRect().left;
+    var pizzaTop =  pizza.getBoundingClientRect().top;
+    var pizzaObj = {};
+    pizzaObj["name"] = document.getElementById("pizza-title").innerHTML;
+    pizzaObj["toppings"] = [];
+    var allToppings = pizza.getElementsByTagName('img');
+    for (var i = 0; i < allToppings.length ; i++) {
+        var currentTopping = allToppings[i];
+        var toppingObj = {};
+        toppingObj["img"] = currentTopping.src;
+        toppingObj["top"] = currentTopping.getBoundingClientRect().top - pizzaTop;
+        toppingObj["left"] = currentTopping.getBoundingClientRect().left - pizzaLeft;
+        pizzaObj["toppings"].push(toppingObj);
+    }
+    localStorage.setItem('pizza', JSON.stringify(pizzaObj));
+    alert("Pizza Saved");
 };
 
 Pizza.load = function(){
-      alert("load");
+    var loadedPizza = localStorage.getItem('pizza');
+    var pizzaObj = JSON.parse(loadedPizza);
+    Pizza.clear();
+    var pizzaTitle = document.getElementById("pizza-title");
+    pizzaTitle.innerHTML = pizzaObj["name"];
+
+    var allToppings = pizzaObj["toppings"];
+    for (var i = 0; i < allToppings.length ; i++) {
+        var currentTopping = allToppings[i];
+        var toppingsImg = document.createElement("img"); 
+        toppingsImg.src = currentTopping["img"];
+        pizza.appendChild(toppingsImg);
+        toppingsImg.style.top =  currentTopping["top"] + "px";
+        toppingsImg.style.left = currentTopping["left"] + "px";
+    }
+    Pizza.show();
+    alert("Pizza Loaded");
 };
 
  Pizza.show = function(){
