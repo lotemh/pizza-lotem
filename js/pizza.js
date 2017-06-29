@@ -86,7 +86,6 @@ Pizza.load = function(){
     Pizza.clear();
     var pizzaTitle = document.getElementById("pizza-title");
     pizzaTitle.innerHTML = pizzaObj["name"];
-
     var allToppings = pizzaObj["toppings"];
     for (var i = 0; i < allToppings.length ; i++) {
         var currentTopping = allToppings[i];
