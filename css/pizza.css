@@ -79,7 +79,6 @@
     background-color: white;
     min-width: 200px;
     min-height: 100px;
-    display: inline-block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -93,4 +92,17 @@
     right:10px;
     top:10px;
     color:black;
+}
+
+.side-menu button#tomatoes{
+	background-image: url("../images/tomatoes.jpg");
+}
+.side-menu button#olives{
+	background-image: url("../images/olives.jpg");
+}
+.side-menu button#mushrooms{
+	background-image: url("../images/mushrooms.jpg");
+}
+.side-menu button#pineapple{
+	background-image: url("../images/pineapple.jpg");
 }
