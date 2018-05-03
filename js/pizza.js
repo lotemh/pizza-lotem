@@ -3,6 +3,7 @@ Pizza.toppings = ["mushrooms", "olives", "pineapple", "tomatoes"];
 
 Pizza.start = function(){
     Pizza.bindMenuActions();
+    Pizza.generateDynamicToppings();
 };
 
 Pizza.bindMenuActions = function(){
@@ -32,9 +33,9 @@ Pizza.generateDynamicToppings = function(){
         var toppingwrapper = document.createElement("li");
         var toppingButton = document.createElement("button");
         var toppingText = document.createTextNode(Pizza.toppings[i]);
-        toppingButton.style.backgroundImg = url("../images/" + Pizza.toppings[i] + ".jpg");
-        newButton.className = "cover-bg toppings-btn";
-		buttonItem.id = Pizza.toppings[i];
+        toppingButton.style.backgroundImage = "url(./images/" + Pizza.toppings[i] + ".jpg)";
+        toppingButton.className = "cover-bg toppings-btn";
+		toppingwrapper.id = Pizza.toppings[i];
         toppingButton.appendChild(toppingText);
         toppingwrapper.appendChild(toppingButton);
         toppingMenu.appendChild(toppingwrapper);
